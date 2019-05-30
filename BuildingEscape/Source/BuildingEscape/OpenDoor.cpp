@@ -3,6 +3,7 @@
 #include "OpenDoor.h"
 #include "BuildingEscape.h"
 #include "Runtime/Engine/Classes/GameFramework/Actor.h"
+#include "Engine/TriggerVolume.h"
 
 
 // Sets default values for this component's properties
@@ -19,6 +20,12 @@ UOpenDoor::UOpenDoor()
 // Called when the game starts
 void UOpenDoor::BeginPlay()
 {
+
+}
+
+// This function is of class type UOpenDoor
+void UOpenDoor::OpenDoor()
+{
 	Super::BeginPlay();
 
 	// Finds the owning actor
@@ -29,7 +36,6 @@ void UOpenDoor::BeginPlay()
 
 	// Set the door rotation
 	Owner->SetActorRotation(NewRotation);
-	
 }
 
 
@@ -38,6 +44,10 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	// Poll the Trigger Volume
+	if (PressurePlate->IsOverlappingActor(ActorThatOpens))
+	{
+		OpenDoor();
+	}
 }
 
