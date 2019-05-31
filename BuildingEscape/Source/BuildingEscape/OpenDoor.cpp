@@ -21,12 +21,13 @@ UOpenDoor::UOpenDoor()
 void UOpenDoor::BeginPlay()
 {
 
+	Super::BeginPlay();
+
 }
 
 // This function is of class type UOpenDoor
 void UOpenDoor::OpenDoor()
 {
-	Super::BeginPlay();
 
 	// Finds the owning actor
 	AActor* Owner = GetOwner();
