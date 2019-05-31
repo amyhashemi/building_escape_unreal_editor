@@ -2,8 +2,10 @@
 
 #include "OpenDoor.h"
 #include "BuildingEscape.h"
+#include "GameFramework/PlayerController.h"
 #include "Runtime/Engine/Classes/GameFramework/Actor.h"
 #include "Engine/TriggerVolume.h"
+#include "Engine/World.h"
 
 
 // Sets default values for this component's properties
@@ -20,8 +22,11 @@ UOpenDoor::UOpenDoor()
 // Called when the game starts
 void UOpenDoor::BeginPlay()
 {
+	// Play has begun when this code runs
 
 	Super::BeginPlay();
+
+	ActorThatOpens = GetWorld()->GetFirstPlayerController()->GetPawn();
 
 }
 
@@ -29,7 +34,7 @@ void UOpenDoor::BeginPlay()
 void UOpenDoor::OpenDoor()
 {
 
-	// Finds the owning actor
+	// Finds the owning actor - whats my owner? The owner is the door (actor) that this class is attached to
 	AActor* Owner = GetOwner();
 
 	//Create a rotator
