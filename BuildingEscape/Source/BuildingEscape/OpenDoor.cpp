@@ -26,6 +26,7 @@ void UOpenDoor::BeginPlay()
 
 	Super::BeginPlay();
 
+	// Because a pawn IS an actor, we can fetch the pawn and store it in an AActor type
 	ActorThatOpens = GetWorld()->GetFirstPlayerController()->GetPawn();
 
 }

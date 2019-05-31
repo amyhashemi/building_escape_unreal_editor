@@ -30,6 +30,8 @@ public:
 
 private:
 
+	//This is where we define the things that we want to interact with the door
+
 	UPROPERTY(VisibleAnywhere)
 	float OpenAngle = 90.0f;
 
