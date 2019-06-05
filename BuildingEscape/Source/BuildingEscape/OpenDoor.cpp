@@ -26,6 +26,9 @@ void UOpenDoor::BeginPlay()
 
 	Super::BeginPlay();
 
+	// set the owner on begin play find the actor and get the owner for every instance of this class (every door)
+	Owner = GetOwner();
+
 	// Because a pawn IS an actor, we can fetch the pawn and store it in an AActor type
 	ActorThatOpens = GetWorld()->GetFirstPlayerController()->GetPawn();
 
@@ -35,26 +38,31 @@ void UOpenDoor::BeginPlay()
 void UOpenDoor::OpenDoor()
 {
 
-	// Finds the owning actor - whats my owner? The owner is the door (actor) that this class is attached to
-	AActor* Owner = GetOwner();
-
-	//Create a rotator
-	FRotator NewRotation = FRotator(0.f, -60.f, 0.f);
-
-	// Set the door rotation
-	Owner->SetActorRotation(NewRotation);
+	Owner->SetActorRotation(FRotator(0.f, OpenAngle, 0.f));
 }
 
+void UOpenDoor::CloseDoor()
+{
+	// Set the door rotation
+	Owner->SetActorRotation(FRotator(0.f, 0.f, 0.f));
+}
 
 // Called every frame
 void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// Poll the Trigger Volume
+	// Poll the Trigger Volume - if triggered, open the door and store when you opened the door
 	if (PressurePlate->IsOverlappingActor(ActorThatOpens))
 	{
 		OpenDoor();
+		LastDoorOpenTime = GetWorld()->GetTimeSeconds();
+	}
+
+	//check if it's time to close the door
+	if (GetWorld()->GetTimeSeconds() - LastDoorOpenTime > DoorCloseDelay)
+	{
+		CloseDoor();
 	}
 }
 

@@ -22,7 +22,9 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
+	// These are class methods here - listed in header file. we define what they do in the cpp file.
 	void OpenDoor();
+	void CloseDoor();
 
 public:	
 	// Called every frame
@@ -32,12 +34,20 @@ private:
 
 	//This is where we define the things that we want to interact with the door
 
-	UPROPERTY(VisibleAnywhere)
-	float OpenAngle = 90.0f;
+	UPROPERTY(EditAnywhere)
+	float OpenAngle = -90.0f;
 
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate;
 
+	//variables to store time in
+	UPROPERTY(EditAnywhere)
+	float DoorCloseDelay = 1.f;
+
+	float LastDoorOpenTime;
+
 	AActor* ActorThatOpens; // Remember pawn inherits from actor
+	// The owning door
+	AActor* Owner;	// each door has a variable called owner so lets just define this here
 
 };
