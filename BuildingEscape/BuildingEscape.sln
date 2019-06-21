@@ -36,6 +36,7 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DA3270D8-B90A-47A2-835F-544478A847C6}.DebugGame Editor|HTML5.ActiveCfg = BuiltWithUnrealBuildTool|Win32
+		{DA3270D8-B90A-47A2-835F-544478A847C6}.DebugGame Editor|HTML5.Build.0 = BuiltWithUnrealBuildTool|Win32
 		{DA3270D8-B90A-47A2-835F-544478A847C6}.DebugGame Editor|Win32.ActiveCfg = BuiltWithUnrealBuildTool|Win32
 		{DA3270D8-B90A-47A2-835F-544478A847C6}.DebugGame Editor|Win64.ActiveCfg = BuiltWithUnrealBuildTool|Win32
 		{DA3270D8-B90A-47A2-835F-544478A847C6}.DebugGame|HTML5.ActiveCfg = BuiltWithUnrealBuildTool|Win32
@@ -50,7 +51,8 @@ Global
 		{DA3270D8-B90A-47A2-835F-544478A847C6}.Shipping|HTML5.ActiveCfg = BuiltWithUnrealBuildTool|Win32
 		{DA3270D8-B90A-47A2-835F-544478A847C6}.Shipping|Win32.ActiveCfg = BuiltWithUnrealBuildTool|Win32
 		{DA3270D8-B90A-47A2-835F-544478A847C6}.Shipping|Win64.ActiveCfg = BuiltWithUnrealBuildTool|Win32
-		{0B2BCF94-8B29-4238-BCE2-7F1A1D692C48}.DebugGame Editor|HTML5.ActiveCfg = Invalid|Win32
+		{0B2BCF94-8B29-4238-BCE2-7F1A1D692C48}.DebugGame Editor|HTML5.ActiveCfg = Development_Editor|x64
+		{0B2BCF94-8B29-4238-BCE2-7F1A1D692C48}.DebugGame Editor|HTML5.Build.0 = Development_Editor|x64
 		{0B2BCF94-8B29-4238-BCE2-7F1A1D692C48}.DebugGame Editor|Win32.ActiveCfg = Invalid|Win32
 		{0B2BCF94-8B29-4238-BCE2-7F1A1D692C48}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Editor|x64
 		{0B2BCF94-8B29-4238-BCE2-7F1A1D692C48}.DebugGame Editor|Win64.Build.0 = DebugGame_Editor|x64
@@ -83,5 +85,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DA3270D8-B90A-47A2-835F-544478A847C6} = {EC148EED-EAA5-492B-B3CE-5853F356A0F2}
 		{0B2BCF94-8B29-4238-BCE2-7F1A1D692C48} = {C18FC893-C25F-48C9-8FD8-BCB85F6BC064}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE3D297D-8CE8-439C-83FB-6098EF51717F}
 	EndGlobalSection
 EndGlobal
